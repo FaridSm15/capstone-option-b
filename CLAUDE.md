@@ -1,19 +1,31 @@
-# Datos que Hablan: Financial Wellness of Young Professionals in Latin America
+# Pipeline: Análisis LatAm 2025
 
-## Goal
-Analyze a survey of 500 young professionals across 6 Latin American countries (Mexico, Colombia, Argentina, Chile, Peru, Brazil) to produce an executive report for a financial literacy nonprofit called Futuro Digital LatAm.
+## Project
+Repeatable financial wellness analysis pipeline for Futuro Digital LatAm.
+Dataset: data/latam_finanzas_2025.csv (raw) → data/latam_finanzas_clean.csv (clean)
+Report: analysis-report.md
 
-## Environment
-- Python version: 3.14
-- Key libraries: pandas, matplotlib, seaborn, scipy
+## Python Environment
+venv activated. Libraries: pandas, matplotlib, seaborn, scipy.
+Scripts go in scripts/. Charts go in charts/ as PNGs.
 
 ## Naming Conventions
-- Scripts are numbered: `01_explore.py`, `02_clean.py`, etc.
-- Charts are numbered and descriptive: `01_income_by_country.png`, etc.
+Scripts: 01_explore.py, 02_clean.py, 03_analysis.py, 04_visualize.py
+Charts: 01_income_by_country.png through 05_housing_burden_by_country.png
+Country scripts: country_mexico.py, country_colombia.py, etc.
 
-## Data Location
-- Raw data: `data/latam_finanzas_2025.csv`
-- Clean data (output): `data/latam_finanzas_clean.csv`
+## Notion Workspace
+Integration: LatAm Pipeline
+Databases: "Findings Tracker", "Country Profiles"
+Report page: "Informe Ejecutivo"
+Push each finding after Phase 3 analysis. Push report after Phase 6.
 
-## Notes
-- All written analysis and reports must be in English.
+## Pipeline Components
+Hooks: chart counter, script logger, phase validator (configured in .claude/settings.json)
+Skills: /interpret (finding format), /publish-finding (Notion push)
+Agent: country-profiler (parallel country analysis)
+
+## Status
+Phases 1, 2, 2.5, 3, 4 already completed in Option B — clean dataset, country profiles,
+analysis script, and 5 charts already exist. This capstone adds: Notion publishing,
+hooks, skills, and re-runs Phase 3/5/6 through the new pipeline infrastructure.
