@@ -34,3 +34,5 @@ df = pd.read_csv('data/latam_fi
 2026-07-04 22:19:34 | status:ok | cd "C:\Users\Farid Simon\Documents\capstone-option-b" && python -c "
 import pandas as pd
 df = pd.read_csv('data/latam_fi
+2026-07-04 22:29:56 | status:ok | cd "C:\Users\Farid Simon\Documents\capstone-option-b" && ls venv/Scripts/python.exe 2>/dev/null || which python
+2026-07-04 22:30:01 | status:ok | cd "C:\Users\Farid Simon\Documents\capstone-option-b" && ./venv/Scripts/python.exe scripts/03_analysis.py
