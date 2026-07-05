@@ -3,15 +3,15 @@
 
 ### 1. Resumen Ejecutivo
 
-This report analyzes a survey of **500 young professionals** (ages 18–32) across six Latin American countries to inform the design of Futuro Digital LatAm's financial literacy programme. Three findings stand out. First, monthly income varies enormously by country — from a median of **$1,458** in Brazil to just **$798** in Argentina, an 83% gap — meaning fixed, dollar-based curriculum benchmarks will misfire in lower-income markets. Second, savings behavior is heavily age-dependent: average monthly savings more than double, from **$61 (5.7% of income)** among 18–22 year-olds to **$154 (15.5%)** among 29–32 year-olds, identifying the first years of a career as the highest-risk window for weak savings habits. Third, housing (28.5% of income) and food (23.8%) together consume over half of the average participant's budget, far outweighing discretionary categories like entertainment (8.7%) — so generic "spend less on fun" advice targets the wrong problem.
+This report analyzes a survey of **500 young professionals** (ages 18–32) across six Latin American countries to inform the design of Futuro Digital LatAm's financial literacy programme. Three findings stand out. First, monthly income varies enormously by country — from a median of **$1,458** in Brazil to just **$798** in Argentina, an 83% gap — meaning a one-size-fits-all curriculum will misjudge relevance in at least some markets. Second, savings behavior is heavily age-dependent: the average savings rate nearly triples, from **5.7% of income** among 18–22 year-olds to **15.5%** among 29–32 year-olds, identifying the first years of a career as the highest-risk window for weak savings habits. Third, housing (28.5% of income) and food (23.8%) together consume over half of the average participant's budget, far outweighing discretionary categories like entertainment (8.7%) — so generic "spend less on fun" advice targets the wrong problem.
 
-Two recommendations follow directly: (1) localize savings and budgeting benchmarks as a percentage of local median income, piloting first in Argentina, Peru, and Colombia; and (2) build a dedicated "first job, first budget" track for 18–25 year-olds that instills automatic savings habits before financial routines calcify.
+Two recommendations follow directly: (1) segment programme content by national income level, prioritizing budgeting and emergency-savings modules in Argentina and Peru and investment/long-term planning modules in Brazil and Chile; and (2) build a dedicated "first savings habits" module for 18–25 year-olds, using small, automated savings goals to compensate for lower relative income before financial routines calcify.
 
 ### 2. Metodología
 
 - **Dataset:** Encuesta de Bienestar Financiero 2025
 - **Sample:** 500 respondents across 6 countries (Argentina, Brazil, Chile, Colombia, Mexico, Peru), ages 18–32
-- **Data collection and processing approach:** The raw survey export (`data/latam_finanzas_2025.csv`, 500 rows × 21 columns) was first profiled for structure, missing values, and category consistency (`scripts/01_explore.py`), then cleaned into an analysis-ready dataset (`data/latam_finanzas_clean.csv`) via `scripts/02_clean.py`. Cross-cutting statistical analyses (income, age, spending, credit card usage, AI tool usage, housing burden) were run in `scripts/03_analysis.py`, per-country profiles were generated via a dedicated country-profiler agent, and five summary charts were produced in `scripts/04_visualize.py`.
+- **Data collection and processing approach:** The raw survey export (`data/latam_finanzas_2025.csv`, 500 rows × 21 columns) was first profiled for structure, missing values, and category consistency (`scripts/01_explore.py`), then cleaned into an analysis-ready dataset (`data/latam_finanzas_clean.csv`) via `scripts/02_clean.py`. Cross-cutting statistical analyses (income, age, spending, credit card usage, AI tool usage, housing burden) were run in `scripts/03_analysis.py`, per-country profiles were generated via a dedicated country-profiler agent, five summary charts were produced in `scripts/04_visualize.py`, and each finding was interpreted and published to the Notion "Findings Tracker" database.
 
 **Data quality issues found and how they were resolved:**
 
@@ -60,61 +60,61 @@ The sample comprises 500 respondents across six countries, unevenly distributed,
 
 #### 4.1 Income differences across Latin American countries
 
-Median monthly income ranges from **$1,458** in Brazil down to just **$798** in Argentina — a gap of nearly $660, or 83% — with Chile ($1,246) and Mexico ($1,067) in the middle tier and Colombia ($857) and Peru ($822) at the lower end.
+Median monthly income varies by nearly two-fold across the six countries in the sample, from **$1,458** in Brazil to **$798** in Argentina, with Chile ($1,246), Mexico ($1,067), Colombia ($857), and Peru ($822) in an intermediate range.
 
-This nearly two-fold spread means a single, one-size-fits-all curriculum will misjudge relevance in at least some markets: budgeting benchmarks and savings targets that feel achievable in Brazil may feel discouraging or irrelevant in Argentina or Peru. See **Figure 1** (`charts/01_income_by_country.png`).
+This gap means a uniform financial literacy programme will not be equally relevant in every market: in Argentina and Peru, where median income is lowest, financial-wellness priorities (saving, debt management, essential spending) carry a different weight than in Brazil or Chile. Programme content should be segmented by national income level, prioritizing budgeting and emergency-savings modules for Argentina and Peru, and investment or long-term planning modules for Brazil and Chile. See **Figure 1** (`charts/01_income_by_country.png`).
 
 ![Monthly Income Distribution by Country](charts/01_income_by_country.png)
 
 #### 4.2 The relationship between age and savings behavior
 
-Savings behavior rises sharply with age: average monthly savings more than double from **$61 (5.7% of income)** among 18–22 year-olds to **$154 (15.5% of income)** among 29–32 year-olds, with a steady step-up in every age band in between.
+The average savings rate rises steadily with age, from **5.7%** of income in the 18–22 age group to **15.5%** in the 29–32 group — nearly tripling across the sampled age range.
 
-This suggests the earliest career years are the highest-risk window for weak savings habits — likely because entry-level earners are still building routines, not because they can't save at all, since the savings rate nearly triples over just one decade. See **Figure 2** (`charts/02_age_vs_savings.png`).
+This identifies 18–25 year-olds (with rates of 5.7% and 8.3%) as the segment with the weakest saving capacity or habit, likely driven by lower starting income and less experience with financial planning rather than an unwillingness to save. Futuro Digital LatAm should design a dedicated "first savings habits" module for users aged 18–25, built around small, automated savings goals that offset their comparatively lower income. See **Figure 2** (`charts/02_age_vs_savings.png`).
 
 ![Age vs. Monthly Savings by Country](charts/02_age_vs_savings.png)
 
 #### 4.3 Where the biggest expense categories are
 
-Housing (**28.5%** of income) and food (**23.8%**) together consume over half of the average participant's income, dwarfing transport (10.1%), entertainment (8.7%), education (8.5%), and healthcare (4.9%) combined.
+Across the full sample, housing (**28.5%** of income) and food (**23.8%**) together account for more than half of average monthly spending, while healthcare (4.9%) and education (8.5%) receive the smallest shares — well below transport (10.1%) and entertainment (8.7%).
 
-This tells us that discretionary-spending advice — the kind of "cut back on entertainment" tips common in generic financial literacy content — will have limited impact, since the two categories draining the most income (housing and food) are largely non-discretionary. See **Figure 3** (`charts/03_spending_breakdown.png`).
+This matters for programme design because it shows regional households have very little budgetary room left for preventive healthcare or additional financial education once essential housing and food costs are covered. The programme should include a module on optimizing housing and food spending (rent negotiation, smart shopping) to free up budgetary room for health and education. See **Figure 3** (`charts/03_spending_breakdown.png`).
 
 ![Average Spending Breakdown by Category](charts/03_spending_breakdown.png)
 
 #### 4.4 How credit card holders differ from non-holders
 
-Credit card holders spend **16% more on food** ($258 vs. $222) and **17% more on entertainment** ($95 vs. $81) than non-holders, despite earning almost the same income (a difference of just 1.5%, $1,023 vs. $1,008).
+With nearly identical income (+1.5%), credit card holders spend **17.2% more on entertainment** and **16.1% more on food** than non-holders, while also saving **6.7% more** on average.
 
-Encouragingly, holders still save slightly more on average ($102 vs. $95, a 6.7% difference), suggesting credit access is not uniformly destructive to savings — but the elevated spending in discretionary-adjacent categories signals a real risk of lifestyle creep and revolving debt if usage isn't paired with awareness. (Not visualized in the five summary charts; see `scripts/03_analysis.py`, `credit_card_comparison()`.)
+This suggests that credit access in the Futuro Digital LatAm population is associated with higher discretionary spending that isn't backed by additional income — a risk pattern especially relevant for young holders who are new to their first card. A "responsible credit use" module should be added to help holders distinguish discretionary, credit-financed spending from their real savings capacity. (Not visualized in the five summary charts; see `scripts/03_analysis.py`, `credit_card_comparison()`.)
 
 #### 4.5 The relationship between AI tool usage and financial satisfaction
 
-Financial satisfaction (on a 1–5 scale) climbs consistently with weekly AI tool usage: from **2.11** among low users (0–3 hrs/week, n=150) to **2.60** among medium users (4–10 hrs/week, n=335) to **3.53** among high users (11+ hrs/week, n=15), a strong positive correlation (**r = 0.57, p < .001**).
+There is a strong, statistically significant positive correlation (**r = 0.57, p ≈ 1.2e-44**) between weekly hours of AI tool usage and financial satisfaction, which rises from **2.11** in the low-usage group (0–3 hrs/week, n=150) to **3.53** in the high-usage group (11+ hrs/week, n=15).
 
-However, high users also report the highest average income ($1,895, more than double the low-usage group's $776), so income is likely a confounding factor — and with only 15 people in the high-usage group, that segment's average is also more outlier-sensitive than the other two, so this data shows association, not proof that AI tools alone drive satisfaction. See **Figure 4** (`charts/04_satisfaction_by_ai_usage.png`).
+This is especially relevant for the low-usage segment, which represents 150 people with both the lowest average income ($776) and the lowest financial satisfaction in the sample — suggesting that low adoption of digital financial-management tools coincides with worse perceived financial wellness. Futuro Digital LatAm should introduce an entry-level AI-tools-for-personal-finance module targeted at the low-usage segment to close this adoption gap, while continuing to monitor the usage–satisfaction relationship longitudinally to rule out reverse causality (higher income driving both greater AI usage and higher satisfaction), given the small size (n=15) of the high-usage group. See **Figure 4** (`charts/04_satisfaction_by_ai_usage.png`).
 
 ![Financial Satisfaction by AI Tool Usage](charts/04_satisfaction_by_ai_usage.png)
 
 #### 4.6 Housing burden differences by country
 
-Housing consumes **34.1%** of income in Argentina and **32.6%** in Chile — well above Mexico (28.2%), Brazil (26.9%), Colombia (25.4%), and Peru (24.6%) — meaning young professionals in the two highest-burden countries have roughly 8–10 percentage points less income available for savings or other essentials purely due to housing costs.
+The share of income spent on housing varies markedly by country, from **34.1%** in Argentina and **32.6%** in Chile down to **24.6%** in Peru, with Mexico (28.2%), Brazil (26.9%), and Colombia (25.4%) in between.
 
-Notably, this ranking is nearly the inverse of the income ranking in Finding 4.1 (Argentina has the lowest income but the highest housing burden), compounding financial strain in that market specifically. See **Figure 5** (`charts/05_housing_burden_by_country.png`).
+This is especially relevant for participants in Argentina and Chile, where a housing burden above 32% of income leaves significantly less room for savings, debt repayment, or emergencies than in a country like Peru. Argentina and Chile should be prioritized for a dedicated housing-cost module (rent renegotiation, shared-housing options), using Peru and Colombia's lower housing burden as a comparative benchmark in educational content. See **Figure 5** (`charts/05_housing_burden_by_country.png`).
 
 ![Housing Cost Burden by Country](charts/05_housing_burden_by_country.png)
 
 ### 5. Recomendaciones
 
-1. **Localize benchmarks by local median income, pilot in the lowest-income markets.** With median income ranging 83% between Brazil and Argentina (Finding 4.1), express savings and budgeting targets as a percentage of local median income rather than fixed dollar figures, and pilot country-specific versions in Argentina, Peru, and Colombia before a regional rollout.
+1. **Segment programme content by national income level, prioritizing Argentina and Peru first.** With median income ranging 83% between Brazil and Argentina (Finding 4.1), prioritize budgeting and emergency-savings modules for Argentina and Peru, and investment or long-term planning modules for Brazil and Chile, rather than a single regional curriculum.
 
-2. **Launch a "first job, first budget" track for 18–25 year-olds.** Since average savings rates nearly triple between the 18–22 and 29–32 age bands (Finding 4.2), prioritize a dedicated track for the youngest cohort that introduces automatic savings habits early, rather than assuming savings education matters equally across all age groups.
+2. **Launch a "first savings habits" module for 18–25 year-olds.** Since the average savings rate nearly triples between the 18–22 and 29–32 age bands (Finding 4.2), prioritize a dedicated module for the youngest cohort built around small, automated savings goals, rather than assuming savings education matters equally across all age groups.
 
-3. **Shift curriculum emphasis from discretionary cuts to fixed-cost optimization.** Because housing and food alone consume over half of average income while entertainment accounts for under 9% (Finding 4.3), replace generic "spend less" advice with negotiation and optimization strategies for fixed costs — shared housing arrangements, meal planning, and food-cost budgeting tools.
+3. **Shift curriculum emphasis from discretionary cuts to housing- and food-cost optimization.** Because housing and food alone consume over half of average income while entertainment accounts for under 9% (Finding 4.3), replace generic "spend less" advice with rent negotiation, shared-housing, and smart-shopping strategies that free up budget for health and education.
 
-4. **Introduce a responsible credit-use module for cardholders.** Credit card holders spend 16–17% more on food and entertainment than non-holders despite near-identical income (Finding 4.4), so a module distinguishing convenience spending from overspending should be introduced for participants who hold or are about to obtain a credit card.
+4. **Introduce a responsible credit-use module for cardholders.** Credit card holders spend 16–17% more on food and entertainment than non-holders despite near-identical income (Finding 4.4), so a module distinguishing discretionary, credit-financed spending from real savings capacity should be introduced for new and prospective cardholders.
 
-5. **Prioritize Argentina and Chile for a housing-cost module, and offer AI tools as a supplementary — not core — resource.** Housing consumes 32–34% of income in these two countries, nearly the inverse of their income ranking (Finding 4.6), warranting a dedicated module on shared housing, subsidy programmes, and rent negotiation. Separately, since AI tool usage correlates with higher financial satisfaction even after accounting for likely income effects (Finding 4.5), incorporate AI-based budgeting tools as a supplementary resource — framed as a complement to core training, not a replacement, given the small high-usage sample (n=15) underlying that correlation.
+5. **Prioritize Argentina and Chile for a housing-cost module, and offer AI tools as a supplementary resource for low-usage users.** Housing consumes 32–34% of income in these two countries (Finding 4.6), warranting a dedicated module on rent negotiation and shared housing. Separately, since low AI-tool usage coincides with both lower income and lower financial satisfaction (Finding 4.5), introduce an entry-level AI-tools module for the low-usage segment — framed as a complement to core training, not a replacement, and monitored longitudinally given the small high-usage sample (n=15) underlying that correlation.
 
 ### 6. Conclusión
 
