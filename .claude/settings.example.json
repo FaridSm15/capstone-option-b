@@ -2,21 +2,9 @@
   "hooks": {
     "PostToolUse": [
       {
-        "matcher": "Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python .claude/hooks/chart-counter.py"
-          }
-        ]
-      },
-      {
         "matcher": "Bash",
         "hooks": [
-          {
-            "type": "command",
-            "command": "python .claude/hooks/log-command.py"
-          }
+          { "type": "command", "command": "python .claude/hooks/post-bash.py" }
         ]
       }
     ],
@@ -24,10 +12,7 @@
       {
         "matcher": "",
         "hooks": [
-          {
-            "type": "command",
-            "command": "bash .claude/hooks/validate-phases.sh"
-          }
+          { "type": "command", "command": "bash .claude/hooks/validate-phases.sh" }
         ]
       }
     ]

@@ -36,3 +36,7 @@ import pandas as pd
 df = pd.read_csv('data/latam_fi
 2026-07-04 22:29:56 | status:ok | cd "C:\Users\Farid Simon\Documents\capstone-option-b" && ls venv/Scripts/python.exe 2>/dev/null || which python
 2026-07-04 22:30:01 | status:ok | cd "C:\Users\Farid Simon\Documents\capstone-option-b" && ./venv/Scripts/python.exe scripts/03_analysis.py
+2026-07-04 22:35:55 | status:ok | cd "C:\Users\Farid Simon\Documents\capstone-option-b" && ls scripts/ && ls charts/ 2>/dev/null
+2026-07-04 22:36:03 | status:ok | cd "C:\Users\Farid Simon\Documents\capstone-option-b" && python scripts/04_visualize.py 2>&1
+2026-07-04 22:36:11 | status:ok | cd "C:\Users\Farid Simon\Documents\capstone-option-b" && ls -la charts/*.png
+2026-07-04 22:41:21 | status:ok | cd "C:\Users\Farid Simon\Documents\capstone-option-b" && python scripts/04_visualize.py
