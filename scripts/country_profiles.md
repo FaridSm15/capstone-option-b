@@ -1,4 +1,4 @@
-﻿## País: México
+## País: México
 
 **1. Sample size and age range**
 - Sample size: 150 respondents
